@@ -1,7 +1,7 @@
 # Enhancements
 
 ## Enhancements for API
- - Add caching for OpenWeatherMap API responses to reduce API calls and improve performance.
+ - Add caching using Redis for OpenWeatherMap API responses to reduce API calls and improve performance.
  - Implement error handling for invalid latitude/longitude inputs.
  - Add support for historical weather data using OpenWeatherMap's One Call API.
 
