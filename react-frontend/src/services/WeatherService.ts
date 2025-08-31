@@ -12,11 +12,14 @@ export class WeatherService {
       console.log('Weather data fetched:', response.data);
       return response.data;
     } catch (error) {
-      throw new Error(
-        error instanceof AxiosError
-          ? `Failed to fetch weather data: ${error.message}`
-          : 'An unexpected error occurred'
-      );
+        if (error instanceof AxiosError) {
+            if (error.response?.status === 429) {
+                const retryAfter = error.response.headers['retry-after'] || 'a few minutes';
+                throw new Error(`Too many requests. Please try again after ${retryAfter} seconds.`);
+            }
+            throw new Error(`Failed to fetch weather data: ${error.message}`);
+        }
+        throw new Error('An unexpected error occurred');
     }
   }
 }

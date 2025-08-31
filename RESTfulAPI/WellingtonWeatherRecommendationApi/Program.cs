@@ -1,3 +1,4 @@
+using WellingtonWeatherRecommendationApi.Middleware;
 using WellingtonWeatherRecommendationApi.Repositories;
 using WellingtonWeatherRecommendationApi.Services;
 
@@ -25,6 +26,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddHttpClient<IWeatherRepository, WeatherRepository>();
 builder.Services.AddSingleton<IRecommendationService, RecommendationService>();
 builder.Services.AddScoped<WeatherService>();
+builder.Services.AddSingleton<RateLimiterService>(); // Register RateLimiterService
 
 var app = builder.Build();
 
@@ -37,6 +39,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowReactApp"); // Apply CORS policy before routing
+app.UseMiddleware<RateLimitingMiddleware>(); // Add rate-limiting middleware
 app.UseAuthorization();
 app.MapControllers();
 

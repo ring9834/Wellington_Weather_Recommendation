@@ -13,7 +13,7 @@ using WellingtonWeatherRecommendationApi.Repositories;
 
 using Xunit;
 
-namespace WellingtonWeatherApi.Tests.Repositories
+namespace WellingtonWeatherRecommendationApi.Tests.Repositories
 {
     public class WeatherRepositoryTests
     {

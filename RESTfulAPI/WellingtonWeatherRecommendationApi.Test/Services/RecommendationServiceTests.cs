@@ -2,7 +2,7 @@
 using WellingtonWeatherRecommendationApi.Services;
 using Xunit;
 
-namespace WellingtonWeatherApi.Tests.Services
+namespace WellingtonWeatherRecommendationApi.Tests.Services
 {
     public class RecommendationServiceTests
     {
