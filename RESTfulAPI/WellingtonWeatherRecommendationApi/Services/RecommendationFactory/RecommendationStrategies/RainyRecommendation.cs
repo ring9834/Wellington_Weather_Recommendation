@@ -4,7 +4,10 @@
     {
         public string GetRecommendation(double temperature)
         {
-            return temperature < 15 ? "Don't forget to bring a coat" : "Don’t forget the umbrella";
+            string message = "Don’t forget the umbrella. ";
+            if (temperature < 15) 
+                message += "Don't forget to bring a coat. ";
+            return message;
         }
     }
 }
