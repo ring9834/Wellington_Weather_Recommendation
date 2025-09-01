@@ -15,4 +15,4 @@ temp/*
 *.csproj.user
 *.suo
 *.user
-.vs/
+**/.vs/
