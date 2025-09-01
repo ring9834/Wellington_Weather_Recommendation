@@ -1,6 +1,6 @@
 ﻿namespace WellingtonWeatherRecommendationApi.Services
 {
-    public class SunnyRecommendation : IRecommendationStrategy
+    public class Sunny : IRecommendationStrategy
     {
         public string GetRecommendation(double temperature)
         {
