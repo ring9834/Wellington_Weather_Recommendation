@@ -135,37 +135,38 @@ namespace WellingtonWeatherRecommendationApi.Tests.Services
             Assert.True(retryAfter <= TimeSpan.FromMinutes(5), "Retry-after time should not exceed block duration.");
         }
 
-        //[Fact]
-        //public void GetRetryAfterTime_NotBlockedClient_ReturnsNull()
-        //{
-        //    // Arrange
-        //    string clientIp = "192.168.1.7";
+        [Fact]
+        public void GetRetryAfterTime_NotBlockedClient_ReturnsNull()
+        {
+            // Arrange
+            string clientIp = "192.168.1.7";
 
-        //    // Act
-        //    TimeSpan? retryAfter = _rateLimiterService.GetRetryAfterTime(clientIp);
+            // Act
+            TimeSpan? retryAfter = _rateLimiterService.GetRetryAfterTime(clientIp);
 
-        //    // Assert
-        //    Assert.Null(retryAfter, "Retry-after time should be null for non-blocked client.");
-        //}
+            // Assert
+            Assert.True(retryAfter == null, "Retry-after time should be null for non-blocked client.");
+        }
 
-        //[Fact]
-        //public async Task GetRetryAfterTime_AfterBlockExpires_ReturnsNull()
-        //{
-        //    // Arrange
-        //    string clientIp = "192.168.1.8";
-        //    int requestLimit = 5;
+        [Fact]
+        public async Task GetRetryAfterTime_AfterBlockExpires_ReturnsNull()
+        {
+            // Arrange
+            string clientIp = "192.168.1.8";
+            int requestLimit = 5;
 
-        //    // Act
-        //    for (int i = 0; i <= requestLimit; i++)
-        //    {
-        //        await _rateLimiterService.IsRequestAllowedAsync(clientIp);
-        //    }
-        //    // Simulate block duration expiration
-        //    await Task.Delay(TimeSpan.FromMinutes(5).Add(TimeSpan.FromSeconds(1)));
-        //    TimeSpan? retryAfter = _rateLimiterService.GetRetryAfterTime(clientIp);
+            // Act
+            for (int i = 0; i <= requestLimit; i++)
+            {
+                await _rateLimiterService.IsRequestAllowedAsync(clientIp);
+            }
 
-        //    // Assert
-        //    Assert.Null(retryAfter, "Retry-after time should be null after block expires.");
-        //}
+            // Simulate block duration expiration
+            await Task.Delay(TimeSpan.FromMinutes(5).Add(TimeSpan.FromSeconds(1)));
+            TimeSpan? retryAfter = _rateLimiterService.GetRetryAfterTime(clientIp);
+
+            // Assert
+            Assert.True(retryAfter == null, "Retry-after time should be null after block expires.");
+        }
     }
 }
