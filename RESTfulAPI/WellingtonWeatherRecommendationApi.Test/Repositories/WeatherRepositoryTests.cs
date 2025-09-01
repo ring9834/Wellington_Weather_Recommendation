@@ -64,9 +64,9 @@ namespace WellingtonWeatherRecommendationApi.Tests.Repositories
 
             // Assert
             result.Should().NotBeNull();
-            result.Main.Temp.Should().Be(12.5);
-            result.Wind.Speed.Should().Be(7.0);
-            result.Weather[0].Main.Should().Be("Rain");
+            result?.Main?.Temp.Should().Be(12.5);
+            result?.Wind?.Speed.Should().Be(7.0);
+            result?.Weather?[0].Main.Should().Be("Rain");
         }
 
         [Fact]
