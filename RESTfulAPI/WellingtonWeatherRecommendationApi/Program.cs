@@ -24,7 +24,7 @@ builder.Services.AddCors(options =>
 
 // Register HttpClient and dependencies
 builder.Services.AddHttpClient<IWeatherRepository, WeatherRepository>();
-builder.Services.AddSingleton<IRecommendationService, RecommendationService>();
+builder.Services.AddSingleton<IRecommendationFactory, RecommendationFactory>();
 builder.Services.AddScoped<WeatherService>();
 builder.Services.AddSingleton<RateLimiterService>(); // Register RateLimiterService
 

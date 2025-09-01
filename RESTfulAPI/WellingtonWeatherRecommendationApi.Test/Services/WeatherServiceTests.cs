@@ -12,13 +12,13 @@ namespace WellingtonWeatherRecommendationApi.Tests.Services
     public class WeatherServiceTests
     {
         private readonly Mock<IWeatherRepository> _weatherRepositoryMock;
-        private readonly Mock<IRecommendationService> _recommendationServiceMock;
+        private readonly Mock<IRecommendationFactory> _recommendationServiceMock;
         private readonly WeatherService _weatherService;
 
         public WeatherServiceTests()
         {
             _weatherRepositoryMock = new Mock<IWeatherRepository>();
-            _recommendationServiceMock = new Mock<IRecommendationService>();
+            _recommendationServiceMock = new Mock<IRecommendationFactory>();
             _weatherService = new WeatherService(_weatherRepositoryMock.Object, _recommendationServiceMock.Object);
         }
 

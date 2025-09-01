@@ -6,9 +6,9 @@ namespace WellingtonWeatherRecommendationApi.Services
     public class WeatherService
     {
         private readonly IWeatherRepository _weatherRepository;
-        private readonly IRecommendationService _recommendationService;
+        private readonly IRecommendationFactory _recommendationService;
 
-        public WeatherService(IWeatherRepository weatherRepository, IRecommendationService recommendationService)
+        public WeatherService(IWeatherRepository weatherRepository, IRecommendationFactory recommendationService)
         {
             _weatherRepository = weatherRepository;
             _recommendationService = recommendationService;

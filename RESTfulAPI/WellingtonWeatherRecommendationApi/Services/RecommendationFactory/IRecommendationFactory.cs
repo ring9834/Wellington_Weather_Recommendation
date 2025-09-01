@@ -1,6 +1,6 @@
 ﻿namespace WellingtonWeatherRecommendationApi.Services
 {
-    public interface IRecommendationService
+    public interface IRecommendationFactory
     {
         string GetRecommendation(double temperature, string condition);
     }

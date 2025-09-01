@@ -1,10 +1,10 @@
 ﻿namespace WellingtonWeatherRecommendationApi.Services
 {
-    public class RecommendationService: IRecommendationService
+    public class RecommendationFactory: IRecommendationFactory
     {
         private readonly Dictionary<string, IRecommendationStrategy> _strategies;
 
-        public RecommendationService()
+        public RecommendationFactory()
         {
             _strategies = new Dictionary<string, IRecommendationStrategy>
             {

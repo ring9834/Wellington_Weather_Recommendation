@@ -6,11 +6,11 @@ namespace WellingtonWeatherRecommendationApi.Tests.Services
 {
     public class RecommendationServiceTests
     {
-        private readonly RecommendationService _recommendationService;
+        private readonly RecommendationFactory _recommendationService;
 
         public RecommendationServiceTests()
         {
-            _recommendationService = new RecommendationService();
+            _recommendationService = new RecommendationFactory();
         }
 
         [Theory]
